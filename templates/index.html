@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        .container {
+            max-width: 100%; /* Full width */
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+        pre {
+            font-family: monospace;
+            white-space: pre-wrap;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto; /* Horizontal scrollbar if needed */
+        }
+    </style>
+</head>
+<body>
+    <h1>ASCII Art Converter</h1>
+    
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".jpg, .jpeg, .png" id="fileInput">
+            <label for="fileInput">Choose an Image</label>
+            <input type="submit" value="Upload and Convert">
+        </form>
+
+        {% if ascii_art %}
+            <h2>ASCII Art Output:</h2>
+            <pre>{{ ascii_art }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>
